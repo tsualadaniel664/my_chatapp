@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #7b2ff7;
+    --secondary-color: #f107a3;
+    --accent-color: #00d2ff;
+    --bg-gradient: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --text-main: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.6);
+}
+
+body {
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.settings-container {
+    max-width: 1300px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.settings-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+    padding: 2.5rem;
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.5);
+}
+
+.settings-layout {
+    display: flex;
+    gap: 3rem;
+}
+
+.settings-sidebar {
+    flex: 0 0 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-main {
+    flex: 1;
+    border-left: 1px solid var(--glass-border);
+    padding-left: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-sidebar form,
+.settings-main form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.settings-sidebar .d-grid,
+.settings-main .d-grid {
+    margin-top: auto !important;
+    padding-top: 2rem;
+}
+
+@media (max-width: 1200px) {
+    .settings-layout {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .settings-sidebar {
+        flex: 1;
+    }
+
+    .settings-main {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid var(--glass-border);
+        padding-top: 2rem;
+    }
+
+    .settings-sidebar .d-grid,
+    .settings-main .d-grid {
+        margin-top: 0 !important;
+        padding-top: 1rem;
+    }
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    margin-bottom: 2rem;
+}
+
+.back-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateX(-5px);
+}
+
+.profile-img-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.profile-img-preview {
+    width: 130px;
+    height: 130px;
+    border-radius: 32px;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 10px 30px rgba(123, 47, 247, 0.3);
+    transition: transform 0.3s;
+}
+
+.profile-img-preview:hover {
+    transform: scale(1.05);
+}
+
+/* Custom File Upload Styling */
+.custom-file-upload {
+    position: relative;
+    display: inline-block;
+}
+
+.file-label-custom {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.file-label-custom:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+}
+
+#photo {
+    display: none;
+}
+
+/* Form Styling */
+.form-floating>.form-control {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    color: white;
+    border-radius: 14px;
+    padding-left: 3rem;
+}
+
+.form-floating>.form-control:focus {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(123, 47, 247, 0.1);
+}
+
+.form-floating>label {
+    padding-left: 3.2rem;
+    color: var(--text-muted);
+}
+
+.form-icon {
+    position: absolute;
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+.input-group-text-custom {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    position: absolute;
+    right: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+}
+
+.save-btn {
+    padding: 14px 40px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border: none;
+    border-radius: 16px;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 10px 20px rgba(123, 47, 247, 0.3);
+}
+
+.save-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(123, 47, 247, 0.4);
+}
+
+.alert {
+    background: rgba(255, 255, 255, 0.05);
+    /* Base transparante */
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    color: white;
+    padding: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.alert-success {
+    border-left: 5px solid #00ff88;
+}
+
+.alert-danger {
+    border-left: 5px solid #ff4444;
+}
+
+hr {
+    border-color: var(--glass-border);
+    opacity: 0.15;
+}
+
+.section-title {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .settings-container {
+        margin: 1.5rem auto;
+        padding: 0 1rem;
+    }
+
+    .settings-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .profile-img-preview {
+        width: 110px;
+        height: 110px;
+    }
+
+    .form-floating>.form-control {
+        font-size: 0.95rem;
+    }
+
+    .save-btn {
+        width: 100%;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .settings-card {
+        border-radius: 20px;
+        padding: 1.5rem 1rem;
+    }
+
+    .section-title {
+        font-size: 0.8rem;
+    }
+
+    .back-btn {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
+
+/* Fix for Bootstrap Floating Label Background (the "white block") */
+.form-floating>label::after {
+    background-color: transparent !important;
+}
+
+.form-floating>.form-control:focus~label,
+.form-floating>.form-control:not(:placeholder-shown)~label {
+    background-color: transparent !important;
+    color: var(--primary-color) !important;
+    transform: scale(0.85) translateY(-0.8rem) translateX(0.15rem);
+}
+
+.showcase-preview-container img {
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.showcase-card:hover .showcase-preview-container img {
+    transform: scale(1.05);
+}
+
+.btn-delete-showcase {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 68, 68, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 68, 68, 0.3);
+    border-radius: 8px;
+    color: #ff4444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 10;
+}
+
+.btn-delete-showcase:hover {
+    background: #ff4444;
+    color: white;
+    transform: scale(1.1);
+}
+
+.btn-delete-profile-photo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 68, 68, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 68, 68, 0.3);
+    border-radius: 10px;
+    color: #ff4444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 100;
+}
+
+.btn-delete-profile-photo:hover {
+    background: #ff4444;
+    color: white;
+    transform: scale(1.1);
+}
